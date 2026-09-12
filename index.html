@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="Pro Game - فروشگاه و پشتیبانی بازی">
+<link rel="manifest" href="manifest.json">
+<title>Pro Game</title>
+<style>
+:root{--bg:#fff;--ink:#111;--muted:#6d6d6d;--line:#e7e7e7;--soft:#f6f6f6;--dark:#111;--ok:#168a4b;--bad:#c33;--shadow:0 12px 40px #00000012}*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}.app{min-height:100vh}.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw}.brand{font-size:25px;font-weight:900;letter-spacing:-1px}.nav{display:flex;gap:8px;align-items:center}.nav button,.outline{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px}.nav button:hover,.outline:hover{background:var(--soft)}.hero{padding:70px 5vw 30px;max-width:1200px;margin:auto}.hero h1{font-size:clamp(38px,7vw,76px);line-height:1;margin:0 0 18px;letter-spacing:-3px}.hero p{color:var(--muted);font-size:17px;max-width:650px;line-height:2}.grid{max-width:1200px;margin:20px auto 80px;padding:0 5vw;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.game{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;transition:.2s;box-shadow:0 5px 20px #00000006}.game:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.game-img{height:190px;background:#eee;display:grid;place-items:center;font-size:54px;font-weight:900}.game-body{padding:18px}.game h3{margin:0 0 7px;font-size:20px}.game p{margin:0;color:var(--muted);line-height:1.8;font-size:13px}.game .more{margin-top:15px;width:100%;background:#111;color:#fff;border:0;border-radius:12px;padding:12px}.tag{display:inline-block;background:#f0f0f0;border-radius:999px;padding:5px 9px;font-size:11px;margin-bottom:10px}.panel{max-width:1100px;margin:20px auto 80px;padding:0 5vw}.box{border:1px solid var(--line);border-radius:20px;padding:24px;background:#fff;box-shadow:var(--shadow)}.box h2{margin-top:0}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin:10px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;border:1px solid #ddd;border-radius:12px;padding:12px;background:#fff;outline:none}.field textarea{min-height:110px;resize:vertical}.primary{background:#111;color:#fff;border:0;border-radius:12px;padding:12px 18px;font-weight:700}.danger{background:#fff;color:var(--bad);border:1px solid #efcaca;border-radius:12px;padding:10px 14px}.notice{padding:12px;border-radius:12px;background:#f5f5f5;margin:12px 0;line-height:1.8;font-size:13px}.ok{color:var(--ok)}.bad{color:var(--bad)}.modal{position:fixed;inset:0;background:#0008;z-index:100;display:grid;place-items:center;padding:18px}.modal-card{background:#fff;border-radius:22px;width:min(540px,100%);max-height:92vh;overflow:auto;padding:25px;box-shadow:0 25px 80px #0005}.close{float:left;border:0;background:#eee;border-radius:10px;width:36px;height:36px}.tabs{display:flex;gap:8px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:15px}.tabs button{border:0;background:#f5f5f5;border-radius:10px;padding:9px 12px}.tabs .active{background:#111;color:#fff}.account{display:flex;align-items:center;gap:12px}.avatar{width:40px;height:40px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center;font-weight:900}.ticket{border:1px solid var(--line);border-radius:15px;padding:15px;margin:10px 0}.ticket-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.status{font-size:11px;border-radius:999px;padding:5px 9px;background:#eee}.status.done{background:#e6f6ed;color:#168a4b}.status.bad{background:#fdecec;color:#c33}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.score{display:flex;gap:7px}.footer{border-top:1px solid var(--line);padding:35px 5vw;color:#777;text-align:center;font-size:12px}@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}.top{height:62px;padding:0 4vw}.brand{font-size:21px}.nav button{padding:8px 9px;font-size:12px}.hero{padding-top:45px}}@media(max-width:520px){.grid{grid-template-columns:1fr}.game-img{height:170px}.hero h1{letter-spacing:-2px}.hero p{font-size:15px}}
+</style>
+</head>
+<body>
+<div id="login" class="modal">
+ <div class="modal-card">
+  <h2 id="authTitle">ساخت حساب Pro Game</h2>
+  <p style="color:#777;line-height:1.8">برای ورود به سایت باید حساب داشته باشید. اطلاعات حساب در همین مرورگر ذخیره می‌شود.</p>
+  <div class="tabs"><button id="tabRegister" class="active" onclick="setAuth('register')">ثبت‌نام</button><button id="tabLogin" onclick="setAuth('login')">ورود</button></div>
+  <div id="registerForm">
+   <div class="field"><label>نام و نام خانوادگی</label><input id="regName" placeholder="مثلاً علی رضایی"></div>
+   <div class="field"><label>نام حساب</label><input id="regUser" placeholder="نام کاربری"></div>
+   <div class="field"><label>رمز عبور</label><input id="regPass" type="password" placeholder="رمز عبور"></div>
+   <button class="primary" style="width:100%" onclick="register()">ساخت حساب</button>
+  </div>
+  <div id="loginForm" class="hidden">
+   <div class="field"><label>نام حساب</label><input id="logUser"></div>
+   <div class="field"><label>رمز عبور</label><input id="logPass" type="password"></div>
+   <button class="primary" style="width:100%" onclick="loginUser()">ورود</button>
+  </div>
+  <div id="authMsg" class="notice hidden"></div>
+ </div>
+</div>
+<div id="gameModal" class="modal hidden"><div class="modal-card"><button class="close" onclick="closeModal('gameModal')">×</button><div id="gameDetails"></div></div></div>
+<div id="ticketModal" class="modal hidden"><div class="modal-card"><button class="close" onclick="closeModal('ticketModal')">×</button><h2>ثبت تیکت بازی</h2><div class="notice">مشخصات حساب شما خودکار ثبت می‌شود. اسم و ID بازیکن را وارد کنید.</div><div class="field"><label>بازی</label><input id="ticketGame" readonly></div><div class="row"><div class="field"><label>اسم بازیکن</label><input id="ticketName"></div><div class="field"><label>ID بازیکن</label><input id="ticketId"></div></div><div class="field"><label>توضیحات / مشخصات لازم</label><textarea id="ticketText" placeholder="هر اطلاعاتی که برای بررسی لازم است..."></textarea></div><button class="primary" onclick="submitTicket()">ارسال تیکت</button><div id="ticketMsg" class="notice hidden"></div></div></div>
+<div id="adminModal" class="modal hidden"><div class="modal-card"><button class="close" onclick="closeModal('adminModal')">×</button><h2>پنل مدیریت Pro Game</h2><p style="color:#777">تمام تیکت‌های این مرورگر در این بخش نمایش داده می‌شوند.</p><div id="adminContent"></div></div></div>
+<div id="profileModal" class="modal hidden"><div class="modal-card"><button class="close" onclick="closeModal('profileModal')">×</button><h2>حساب من</h2><div id="profileContent"></div></div></div>
+<div class="app">
+<header class="top"><div class="brand">PRO GAME</div><nav class="nav"><button onclick="scrollToGames()">بازی‌ها</button><button onclick="showTickets()">تیکت‌های من</button><button onclick="openProfile()" id="accountBtn">حساب</button><button onclick="openAdmin()">مدیریت</button></nav></header>
+<section class="hero"><span class="tag">PRO GAME</span><h1>دنیای بازی،<br>ساده و حرفه‌ای.</h1><p>بازی موردنظرت را انتخاب کن، مشخصات لازم را ببین و برای دریافت خدمات یا بررسی، یک تیکت ثبت کن.</p></section>
+<section id="games" class="grid"></section>
+<section id="myTickets" class="panel hidden"><div class="box"><h2>تیکت‌های من</h2><div id="ticketList"></div></div></section>
+<footer class="footer">Pro Game • نسخه اولیه</footer>
+</div>
+<script>
+const ADMIN_PASSWORD='ProGame@2026';
+const games=[
+ {id:'game1',name:'بازی شماره ۱',emoji:'🎮',desc:'جایگاه آماده برای اولین بازی شما.',req:'اسم بازیکن، ID بازیکن و نام حساب'},
+ {id:'game2',name:'بازی شماره ۲',emoji:'🕹️',desc:'جایگاه آماده برای بازی دوم.',req:'اسم بازیکن، ID بازیکن و نام حساب'},
+ {id:'game3',name:'بازی شماره ۳',emoji:'🏆',desc:'جایگاه آماده برای بازی سوم.',req:'اسم بازیکن، ID بازیکن و نام حساب'},
+ {id:'game4',name:'بازی شماره ۴',emoji:'⚡',desc:'جایگاه آماده برای بازی چهارم.',req:'اسم بازیکن، ID بازیکن و نام حساب'},
+ {id:'game5',name:'بازی شماره ۵',emoji:'🔥',desc:'جایگاه آماده برای بازی پنجم.',req:'اسم بازیکن، ID بازیکن و نام حساب'},
+ {id:'game6',name:'بازی شماره ۶',emoji:'🚀',desc:'جایگاه آماده برای بازی ششم.',req:'اسم بازیکن، ID بازیکن و نام حساب'}
+];
+let authMode='register';
+const getUsers=()=>JSON.parse(localStorage.getItem('progame.users')||'[]');
+const getTickets=()=>JSON.parse(localStorage.getItem('progame.tickets')||'[]');
+const current=()=>JSON.parse(localStorage.getItem('progame.current')||'null');
+function setAuth(mode){authMode=mode;document.getElementById('registerForm').classList.toggle('hidden',mode!=='register');document.getElementById('loginForm').classList.toggle('hidden',mode!=='login');document.getElementById('tabRegister').classList.toggle('active',mode==='register');document.getElementById('tabLogin').classList.toggle('active',mode==='login');document.getElementById('authTitle').textContent=mode==='register'?'ساخت حساب Pro Game':'ورود به Pro Game';msg('authMsg','',false)}
+function msg(id,text,show=true,ok=false){const e=document.getElementById(id);e.textContent=text;e.classList.toggle('hidden',!show);e.classList.toggle('ok',ok);e.classList.toggle('bad',!ok)}
+function register(){const name=regName.value.trim(),user=regUser.value.trim(),pass=regPass.value;if(!name||!user||!pass)return msg('authMsg','همه فیلدها را کامل کن.');let users=getUsers();if(users.some(x=>x.user.toLowerCase()===user.toLowerCase()))return msg('authMsg','این نام حساب قبلاً ثبت شده است.');const u={name,user,pass,createdAt:new Date().toISOString()};users.push(u);localStorage.setItem('progame.users',JSON.stringify(users));localStorage.setItem('progame.current',JSON.stringify(u));hideLogin();render();}
+function loginUser(){const user=logUser.value.trim(),pass=logPass.value;const u=getUsers().find(x=>x.user===user&&x.pass===pass);if(!u)return msg('authMsg','نام حساب یا رمز اشتباه است.');localStorage.setItem('progame.current',JSON.stringify(u));hideLogin();render()}
+function hideLogin(){document.getElementById('login').classList.add('hidden')}
+function ensureAuth(){if(!current())document.getElementById('login').classList.remove('hidden')}
+function render(){document.getElementById('games').innerHTML=games.map(g=>`<article class="game"><div class="game-img">${g.emoji}</div><div class="game-body"><span class="tag">${g.id.toUpperCase()}</span><h3>${g.name}</h3><p>${g.desc}</p><button class="more" onclick="openGame('${g.id}')">مشاهده بازی</button></div></article>`).join('');const c=current();document.getElementById('accountBtn').textContent=c?'حساب: '+c.user:'حساب';}
+function scrollToGames(){document.getElementById('games').scrollIntoView({behavior:'smooth'})}
+function openGame(id){const g=games.find(x=>x.id===id);document.getElementById('gameDetails').innerHTML=`<span class="tag">${g.id.toUpperCase()}</span><h2>${g.emoji} ${g.name}</h2><p>${g.desc}</p><div class="notice"><b>مشخصات موردنیاز فعلی:</b><br>${g.req}</div><button class="primary" onclick="openTicket('${g.id}')">ثبت تیکت برای این بازی</button>`;document.getElementById('gameModal').classList.remove('hidden')}
+function openTicket(id){closeModal('gameModal');const g=games.find(x=>x.id===id);ticketGame.value=g.name;ticketName.value=current()?.name||'';ticketId.value='';ticketText.value='';ticketMsg.classList.add('hidden');document.getElementById('ticketModal').classList.remove('hidden')}
+function submitTicket(){const c=current();if(!c)return ensureAuth();const game=ticketGame.value,name=ticketName.value.trim(),pid=ticketId.value.trim(),text=ticketText.value.trim();if(!name||!pid||!text)return msg('ticketMsg','اسم، ID و توضیحات را کامل کن.');let ts=getTickets();const t={id:'PG-'+Date.now().toString().slice(-7),game,name,pid,text,user:c.user,accountName:c.name,createdAt:new Date().toISOString(),status:'در انتظار بررسی',score:null,review:'',done:false};ts.unshift(t);localStorage.setItem('progame.tickets',JSON.stringify(ts));msg('ticketMsg','تیکت با موفقیت ثبت شد.',true,true);setTimeout(()=>{closeModal('ticketModal');showTickets()},700)}
+function showTickets(){const c=current();if(!c)return ensureAuth();const ts=getTickets().filter(t=>t.user===c.user);document.getElementById('ticketList').innerHTML=ts.length?ts.map(t=>`<div class="ticket"><div class="ticket-head"><b>${t.game}</b><span class="status ${t.done?'done':''}">${t.done?'انجام شده':t.status}</span></div><p><b>شماره:</b> ${t.id}<br><b>اسم:</b> ${t.name} • <b>ID:</b> ${t.pid}<br><b>نام حساب:</b> ${t.accountName}</p><p>${t.text}</p>${t.score!==null?`<div><b>نمره:</b> ${t.score}/10 ${t.score>=5?'👍':'👎'}</div>`:''}${t.review?`<div class="notice"><b>پاسخ مدیر:</b><br>${t.review}</div>`:''}</div>`).join(''):'<div class="notice">هنوز تیکتی ثبت نکرده‌ای.</div>';document.getElementById('myTickets').classList.remove('hidden');document.getElementById('myTickets').scrollIntoView({behavior:'smooth'})}
+function openAdmin(){const p=prompt('رمز پنل مدیریت را وارد کن:');if(p!==ADMIN_PASSWORD)return alert('رمز اشتباه است.');renderAdmin();document.getElementById('adminModal').classList.remove('hidden')}
+function renderAdmin(){const ts=getTickets();document.getElementById('adminContent').innerHTML=ts.length?ts.map(t=>`<div class="ticket"><div class="ticket-head"><b>${t.id} — ${t.game}</b><span class="status ${t.done?'done':''}">${t.done?'انجام شده':t.status}</span></div><p><b>کاربر:</b> ${t.accountName} (${t.user})<br><b>اسم بازیکن:</b> ${t.name} • <b>ID:</b> ${t.pid}<br><b>تاریخ:</b> ${new Date(t.createdAt).toLocaleString('fa-IR')}</p><p>${t.text}</p><div class="field"><label>پاسخ مدیر</label><textarea id="review-${t.id}">${t.review||''}</textarea></div><div class="row"><div class="field"><label>نمره از ۱۰</label><input id="score-${t.id}" type="number" min="0" max="10" value="${t.score??''}"></div><div class="field"><label>وضعیت</label><select id="status-${t.id}"><option ${t.status==='در انتظار بررسی'?'selected':''}>در انتظار بررسی</option><option ${t.status==='بررسی شد'?'selected':''}>بررسی شد</option><option ${t.status==='رد شد'?'selected':''}>رد شد</option></select></div></div><div class="actions"><button class="primary" onclick="saveReview('${t.id}')">ذخیره نتیجه</button><button class="outline" onclick="markDone('${t.id}')">انجام شده</button></div></div>`).join(''):'<div class="notice">هنوز تیکتی وجود ندارد.</div>'}
+function saveReview(id){let ts=getTickets(),t=ts.find(x=>x.id===id);if(!t)return;t.review=document.getElementById('review-'+id).value.trim();const s=document.getElementById('score-'+id).value;t.score=s===''?null:Number(s);t.status=document.getElementById('status-'+id).value;t.done=t.status==='بررسی شد'&&!!t.review;localStorage.setItem('progame.tickets',JSON.stringify(ts));renderAdmin();alert('نتیجه ذخیره شد.')}
+function markDone(id){let ts=getTickets(),t=ts.find(x=>x.id===id);if(!t)return;t.done=true;t.status='بررسی شد';localStorage.setItem('progame.tickets',JSON.stringify(ts));renderAdmin()}
+function openProfile(){const c=current();if(!c)return ensureAuth();document.getElementById('profileContent').innerHTML=`<div class="account"><div class="avatar">${c.name[0]||'P'}</div><div><b>${c.name}</b><br><span style="color:#777">@${c.user}</span></div></div><div class="notice" style="margin-top:18px">این حساب در مرورگر شما ذخیره شده و برای ورود بعدی باقی می‌ماند.</div><button class="danger" onclick="logout()">خروج از حساب</button>`;document.getElementById('profileModal').classList.remove('hidden')}
+function logout(){localStorage.removeItem('progame.current');closeModal('profileModal');document.getElementById('login').classList.remove('hidden');setAuth('login')}
+function closeModal(id){document.getElementById(id).classList.add('hidden')}
+window.addEventListener('click',e=>{if(e.target.classList.contains('modal'))e.target.classList.add('hidden')});
+render();ensureAuth();
+</script>
+</body>
+</html>
