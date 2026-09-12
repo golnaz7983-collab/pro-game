@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Restore stable index
         run: |
+          git fetch --no-tags origin 73843a6941a3e799aa1d1bc70366afbcb3e67249
           git checkout 73843a6941a3e799aa1d1bc70366afbcb3e67249 -- index.html
           rm -f .github/workflows/theme-update.yml .github/workflows/restore-site.yml .github/workflows/fix-registration.yml
           git config user.name "github-actions[bot]"
